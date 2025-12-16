@@ -1,0 +1,8 @@
+# Configuración del backend
+node_modules/
+package-lock.json
+.env
+
+# Logs
+*.log
+npm-debug.log*
