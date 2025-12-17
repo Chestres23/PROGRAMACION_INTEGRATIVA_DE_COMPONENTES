@@ -1,4 +1,4 @@
-# � ChesStore - Sistema de Gestión
+# ChesStore - Sistema de Gestión
 
 Proyecto Final: Sistema completo de gestión con Web Components (Lit) + API REST + MySQL
 
@@ -111,18 +111,16 @@ CREATE TABLE usuarios (
 
 ### 3. Configurar el Backend
 
+```bash
 # Navegar a la carpeta backend desde la raíz del proyecto
 cd backend
 
-
 # Instalar dependencias (Express, MySQL2, bcryptjs, CORS)
 npm install
-
-# ⚠️ IMPORTANTE: Configurar credenciales de MySQL
-# Edita backend/db.js con tus credenciales:
 ```
 
-**backend/db.js:**
+⚠️ **IMPORTANTE**: Configurar credenciales de MySQL en `backend/db.js`:
+
 ```javascript
 const db = mysql.createConnection({
     host: '127.0.0.1',
@@ -134,7 +132,20 @@ const db = mysql.createConnection({
     port: 3306
 });
 ```
- desde la raíz del proyecto
+
+Luego inicia el backend:
+```bash
+npm start
+# O si no está configurado, usa:
+node server.js
+```
+
+✅ **Backend corriendo en:** http://localhost:3000
+
+### 4. Configurar el Frontend
+
+```bash
+# Navegar a la carpeta frontend desde la raíz del proyecto
 cd frontend
 
 # Instalar dependencias (Lit, Bootstrap, Vite)
@@ -147,16 +158,16 @@ npm run dev
 ✅ **Frontend corriendo en:** http://localhost:5173
 
 **Abre tu navegador en esa URL y verás ChesStore funcionando!**
-```
+
+## 🔌 API REST - Endpoints
 
 ### Autenticación
 | Método | Ruta | Descripción |
 |--------|------|-------------|
 | POST | `/auth/login` | Autenticar usuario |
 | POST | `/auth/verificar` | Verificar sesión activa |
-```
-### Usuarios (CRUD completo)
 
+### Usuarios (CRUD completo)
 | Método | Ruta | Descripción |
 |--------|------|-------------|
 | GET | `/users` | Listar todos los usuarios |
@@ -164,10 +175,8 @@ npm run dev
 | POST | `/users` | Crear nuevo usuario |
 | PUT | `/users/:id` | Actualizar usuario |
 | DELETE | `/users/:id` | Eliminar usuario |
-```
 
 ### Productos (CRUD completo)
-```
 | Método | Ruta | Descripción |
 |--------|------|-------------|
 | GET | `/productos` | Listar todos los productos |
@@ -175,12 +184,10 @@ npm run dev
 | POST | `/productos` | Crear nuevo producto |
 | PUT | `/productos/:id` | Actualizar producto |
 | DELETE | `/productos/:id` | Eliminar producto |
-```
 
 ### Ejemplos de Peticiones
 
 **Login:**
-
 ```json
 POST /auth/login
 {
@@ -197,7 +204,7 @@ POST /users
   "correo": "carlos@example.com",
   "password": "carlos123",
   "rol": "Usuario",
-  "estado": "activo´C"
+  "estado": "activo"
 }
 ```
 
@@ -214,12 +221,10 @@ POST /productos
 }
 ```
 
-### 4. Configurar el Frontend
+## ✨ Características Implementadas
 
-```bash
-# Navegar a la carpeta frontend
-cd frontend
-**Web Components** con Lit (10 componentes)
+### Frontend
+✅ **Web Components** con Lit (10 componentes)
 ✅ **Propiedades reactivas** y estado local
 ✅ **Shadow DOM** con estilos encapsulados
 ✅ **Custom Events** para comunicación entre componentes
@@ -248,27 +253,7 @@ cd frontend
 ✅ **Timestamps automáticos** (created_at, updated_at)
 ✅ **Índices** en campos de búsqueda
 ✅ **Relaciones** bien definidas
-✅ **Datos de prueba** incluidoe en: **http://localhost:5173** (o el puerto que Vite asigne)
-
-## 🔌 API REST - Endpoints
-
-| Método | Ruta | Descripción |
-|--------|------|-------------|
-| GET | `/users` | Obtener todos los usuarios |
-| GET | `/users/:id` | Obtener un usuario específico |
-| POST | `/users` | Crear un nuevo usuario |
-| PUT | `/users/:id` | Actualizar un usuario existente |
-| DELETE | `/users/:id` | Eliminar un usuario |
-
-### Ejemplo de Petición POST
-```json
-{
-  "nombre": "Juan Pérez",
-  "correo": "juan@example.com",
-  "rol": "Administrador",
-  "estado": "activo"
-}
-```
+✅ **Datos de prueba** incluidos
 
 ## 🎨 Componentes Web Components
 
@@ -292,32 +277,6 @@ Lista de usuarios que:
 - Permite editar y eliminar usuarios
 - Confirma antes de eliminar
 - Muestra badges de estado (activo/inactivo)
-
-## ✨ Características Implementadas
-
-### Frontend
-✅ Web Components con Lit
-✅ Propiedades reactivas
-✅ Shadow DOM con estilos encapsulados
-✅ Custom Events entre componentes
-✅ Manejo de estados (loading, error)
-✅ Validación de formularios
-✅ Diseño responsive
-✅ Confirmación de eliminación
-✅ Feedback visual de acciones
-
-### Backend
-✅ API REST completa
-✅ Validación de datos
-✅ Manejo de errores
-✅ Códigos HTTP apropiados
-✅ CORS habilitado
-✅ Mensajes descriptivos
-
-### Base de Datos
-✅ Tabla usuarios con todos los campos requeridos
-✅ Auto incremento en ID
-✅ Restricciones NOT NULL
 
 ## 🧪 Pruebas
 
